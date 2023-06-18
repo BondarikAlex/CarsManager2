@@ -3,40 +3,51 @@ package org.cars.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.cars.model.Car;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.cars.model.ListCars;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class Write_Read_Jackson implements InterfaceWrite_Read {
+public class Write_Read_Jackson implements Interface_Write_Read {
+    public static File fileJSON=new File("Cars.json");
     @Override//запись в джейсон
-    public ArrayList<Car> writeFile(ArrayList<Car> list, String nameFile) {
+    public ArrayList<Car> write(ArrayList<Car> list) {
         ObjectMapper objectMapper = new ObjectMapper();
         list.stream().forEach(i -> {
             try {
-                objectMapper.writeValue(new File(nameFile + ".json"), list);
+                objectMapper.writeValue(fileJSON, list);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        });return list;
+        });
+        return list;
     }
-@Override
+    @Override
     //чтение из джейсон
-    public  ArrayList<Car> readJsonFile(String nameFile) throws IOException {
+    public ArrayList<Car> read() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(new File(nameFile + ".json"), new TypeReference<ArrayList<Car>>() {
-            @Override
-            public Type getType() {
-                return super.getType();
-            }
+        return mapper.readValue(fileJSON, new TypeReference<>() {
+
         });
     }
-    public static ArrayList<Car> methodWriteReadJson()throws IOException{
-        System.out.println("Создание Json- "+new Write_Read_Jackson().writeFile(ListCars.getListCars(),"Cars"));
-        return new Write_Read_Jackson().readJsonFile("Cars");
-    }
+
+
+public static void deleteFile(){
+    if(Write_Read_Jackson.fileJSON.exists()){if(Write_Read_Jackson.fileJSON.delete()){
+        System.out.println("Файл удален");}
+    }else
+        System.out.println("По неизвестной причине файл не удалился! Возможно его там нет!");}
+
+public static void writeJson(ArrayList<Car> list){
+     new Write_Read_Jackson().write(list);
+}
+public static ArrayList<Car> readJson() throws IOException {
+   return new Write_Read_Jackson().read();
+
+}
+
+
+
 }
 
 
