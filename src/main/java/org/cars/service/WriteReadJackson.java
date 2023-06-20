@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Write_Read_Jackson implements Interface_Write_Read {
+public class WriteReadJackson implements InterfaceWriteRead {
     public static File fileJSON=new File("Cars.json");
     @Override//запись в джейсон
     public ArrayList<Car> write(ArrayList<Car> list) {
@@ -33,16 +33,16 @@ public class Write_Read_Jackson implements Interface_Write_Read {
 
 
 public static void deleteFile(){
-    if(Write_Read_Jackson.fileJSON.exists()){if(Write_Read_Jackson.fileJSON.delete()){
+    if(WriteReadJackson.fileJSON.exists()){if(WriteReadJackson.fileJSON.delete()){
         System.out.println("Файл удален");}
     }else
         System.out.println("По неизвестной причине файл не удалился! Возможно его там нет!");}
 
 public static void writeJson(ArrayList<Car> list){
-     new Write_Read_Jackson().write(list);
+     new WriteReadJackson().write(list);
 }
 public static ArrayList<Car> readJson() throws IOException {
-   return new Write_Read_Jackson().read();
+   return new WriteReadJackson().read();
 
 }
 

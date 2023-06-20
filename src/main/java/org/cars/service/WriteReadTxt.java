@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Write_Read_Txt implements Interface_Write_Read {
+public class WriteReadTxt implements InterfaceWriteRead {
     public static File fileTXT = new File("Cars.txt");
 
     public static void deleteFile() {
@@ -50,10 +50,10 @@ public class Write_Read_Txt implements Interface_Write_Read {
         return list;
     }
     public static ArrayList<Car> writeTXT(){
-        return new Write_Read_Txt().write(ListCars.getListCars());
+        return new WriteReadTxt().write(ListCars.getListCars());
     }
     public static ArrayList<Car> readTXT() throws IOException {
-        return new Write_Read_Txt().read();
+        return new WriteReadTxt().read();
 
     }
 }

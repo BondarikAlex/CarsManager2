@@ -1,12 +1,7 @@
 package org.cars;
 
-import com.fasterxml.jackson.databind.exc.MismatchedInputException;
-import org.cars.model.ListCars;
-import org.cars.service.Write_Read_Jackson;
 import org.cars.util.AvtoManager;
 
-import java.io.IOException;
-import java.sql.*;
 import java.util.InputMismatchException;
 
 public class Main {

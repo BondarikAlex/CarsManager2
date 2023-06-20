@@ -1,11 +1,13 @@
 package org.cars.util;
 
+import org.postgresql.ds.PGPoolingDataSource;
+
 import java.sql.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JDBCServis {
+public class JDBCService {
     //Параметры подключения
     private Connection connection;
     private Statement statement;
@@ -23,6 +25,18 @@ public class JDBCServis {
             System.out.println(e.getMessage());
         }
     }
+    public static void getConnection(){
+        PGPoolingDataSource ds=new PGPoolingDataSource();
+        ds.setServerName("localhost");
+        ds.setDatabaseName("postgres");
+        ds.setUser("postgres");
+        ds.setPassword("password");
+        ds.setMaxConnections(100);
+        ds.setInitialConnections(20);
+
+
+    }
+
     public void jdbcQuery(String s){
         try {
             statement.execute(s);
