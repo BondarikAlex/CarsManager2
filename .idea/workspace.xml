@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7dc88354-cefa-4d1b-ad04-77f0b5ddb5f3" name="Changes" comment="Add_servis_TXT&amp;Json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cars/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cars/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cars/service/Interface_Write_Read.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cars/service/InterfaceWriteRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cars/service/Write_Read_Jackson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cars/service/WriteReadJackson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cars/service/Write_Read_Txt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cars/service/WriteReadTxt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cars/model/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cars/model/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cars/util/AvtoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cars/util/AvtoManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cars/util/JDBCServis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cars/util/JDBCService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cars/util/JDBCService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cars/util/JDBCService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cars/util/SQLMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cars/util/SQLMethods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,6 +190,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/cars/service/WriteReadTxt.java</url>
           <line>29</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/cars/util/AvtoManager.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/cars/util/AvtoManager.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

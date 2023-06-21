@@ -5,6 +5,7 @@ import org.cars.service.WriteReadJackson;
 import org.cars.service.WriteReadTxt;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class AvtoManager {
     static boolean button = true;
     static boolean menu = true;
 
-    public static void avtoManager() throws InputMismatchException {
+    public static void avtoManager() throws InputMismatchException, SQLException {
         while (menu) {
             mainMenu();
             try {
@@ -79,7 +80,7 @@ public class AvtoManager {
     }
 
     ////////////////////////////////////////////////////////
-    public static void menuTXT() {
+    public static void menuTXT() throws SQLException {
         System.out.println("***** Меню TXT *****\n" +
                 "1 - Write Txt File!\n" +
                 "2 - Read Txt File!\n" +
@@ -109,7 +110,7 @@ public class AvtoManager {
     }
 
     ///////////////////////////////////////////////////////2
-    public static void menuPostgrase() {
+    public static void menuPostgrase() throws SQLException {
         System.out.println("***** Меню POSTGRES *****\n" +
                 "0 - Проверить подтянут ли образ\n" +
                 "1 - Подтянуть образ в контейнер\n" +
@@ -149,12 +150,15 @@ public class AvtoManager {
             }
             case 3 -> {
                 JDBCService jdbcService = new JDBCService();
-                jdbcService.runConnection();
-                jdbcService.jdbcQuery(new SQLMethods().createTable());
-                jdbcService.jdbcQuery(new SQLMethods().writeTable());
-                jdbcService.conClose();
+                System.out.println(jdbcService.fullLifeConnect(new SQLMethods().createTable()));
+                 System.out.println(jdbcService.fullLifeConnect(new SQLMethods().writeTable()));
+
             }
             case 4 -> {
+                JDBCService jdbcService = new JDBCService();
+                System.out.println(jdbcService.fullLifeConnect(new SQLMethods().getBrand()));
+
+
             }
         }
 

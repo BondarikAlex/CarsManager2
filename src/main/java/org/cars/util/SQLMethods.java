@@ -1,16 +1,32 @@
 package org.cars.util;
 
+import org.cars.model.Car;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SQLMethods {
     public String createTable() {
-        return "CREATE TABLE IF NOT EXISTS Car (\n" +
+        return "CREATE TABLE IF NOT EXISTS Cars (\n" +
                 "             Id SERIAL PRIMARY KEY,\n" +
                 "        brand TEXT not null check(trim(brand)!= ''),\n" +
                 "                model TEXT not null check(trim(model)!= ''),\n" +
                 "                year\tINTEGER,\n" +
                 "                price INTEGER);";
     }
+
+    public  String propertiResultSet(ResultSet rs) throws SQLException {
+        ArrayList<Car> list = new ArrayList<>();
+        while (rs.next()) {
+            Car car = new Car();
+            car.setId(rs.getLong("id"));
+            car.setBrand(rs.getString("brand"));
+            car.setModel(rs.getString("model"));
+            car.setYear(rs.getInt("year"));
+            car.setPrice(rs.getInt("price"));
+list.add(car);
+    }return list.stream().toString();}
 
     public String writeTable() {//
         return "INSERT INTO Cars (brand,model,year,price) VALUES('BMW', 'e34',1999,2000);\n" +
@@ -34,4 +50,7 @@ public class SQLMethods {
     }
 
 
+    public String getBrand() {
+        return "select *  from cars ; ";
+    }
 }
