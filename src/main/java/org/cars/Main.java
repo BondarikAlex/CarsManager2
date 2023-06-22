@@ -1,12 +1,22 @@
 package org.cars;
 
-import org.cars.model.ListCars;
-import org.cars.service.Write_Read_Jackson;
+import org.cars.util.AvtoManager;
 
-import java.io.IOException;
+import java.sql.SQLException;
+import java.util.InputMismatchException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        System.out.println("Чтение из Json-"+Write_Read_Jackson.methodWriteReadJson());
+    public static void main(String[] args) throws SQLException {
+        // System.out.println("Чтение из Json-"+Write_Read_Jackson.methodWriteReadJson());
+        try {
+            AvtoManager.avtoManager() ;
+        }catch (InputMismatchException exception){
+            System.out.println(exception.getMessage());
+        }
+
     }
 }
+
+
+
+
